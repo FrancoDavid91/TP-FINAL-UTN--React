@@ -1,53 +1,52 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import TaskForm from '../TaskForm/TaskForm';
 import TaskList from '../TaskList/TaskList';
 import TaskItem from '../TaskItem/TaskItem';
 import './TaskListView.css';
 
 export const TaskListView = () => {
-  const [task, setTask] = useState([]);
-  const [editingTaskId, setEditingTaskId] = useState(null);
-  const [newTitle, setNewTitle] = useState(''); // Nuevo estado para manejar el valor del input
-
-  const createTask = (title) => ({
-    id: window.crypto.randomUUID(),
-    title: title,
-    completed: false,
-  });
-
-  const addTask = (form) => {
-    const newTask = createTask(form.title);
-    setTask([...task, newTask]);
-  };
-
-  const completeTask = (id) => {
-    const newTaskList = task.map((taskNew) =>
-      taskNew.id === id ? { ...taskNew, completed: !taskNew.completed } : taskNew
-    );
-    setTask(newTaskList);
-  };
-
-  const deleteTask = (id) => {
-    const newTask = task.filter((task) => task.id !== id);
-    setTask(newTask);
-  };
-
-  const startEditingTask = (id, title) => {
-    setEditingTaskId(id);
-    setNewTitle(title); // Establecer el valor del input al título actual
-  };
-
-  const finishEditingTask = (id) => {
-    const updatedTaskList = task.map((taskNew) =>
-      taskNew.id === id ? { ...taskNew, title: newTitle } : taskNew
-    );
-    setTask(updatedTaskList);
-    setEditingTaskId(null);
-  };
-
-  return (
-    <main>
-      <div className='container-view'>
+    const [task, setTask] = useState([]);
+    const [editingTaskId, setEditingTaskId] = useState(null);
+    const [newTitle, setNewTitle] = useState(''); // Nuevo estado para manejar el valor del input
+  
+    const createTask = (title) => ({
+      id: window.crypto.randomUUID(),
+      title: title,
+      completed: false,
+    });
+  
+    const addTask = (form) => {
+      const newTask = createTask(form.title);
+      setTask([...task, newTask]);
+    };
+  
+    const completeTask = (id) => {
+      const newTaskList = task.map((taskNew) =>
+        taskNew.id === id ? { ...taskNew, completed: !taskNew.completed } : taskNew
+      );
+      setTask(newTaskList);
+    };
+  
+    const deleteTask = (id) => {
+      const newTask = task.filter((task) => task.id !== id);
+      setTask(newTask);
+    };
+  
+    const startEditingTask = (id, title) => {
+      setEditingTaskId(id);
+      setNewTitle(title); // Establecer el valor del input al título actual
+    };
+  
+    const finishEditingTask = (id) => {
+      const updatedTaskList = task.map((taskNew) =>
+        taskNew.id === id ? { ...taskNew, title: newTitle } : taskNew
+      );
+      setTask(updatedTaskList);
+      setEditingTaskId(null);
+    };
+  
+    return (
+      <div>
         <TaskForm
           onSubmitted={(form) => {
             addTask(form);
@@ -65,21 +64,19 @@ export const TaskListView = () => {
                 onEdit={() => startEditingTask(task.id, task.title)}
               />
               {editingTaskId === task.id && (
-                <div className='container-edit'>
+                <div>
                   <input
-                    className='inputForm inputSave'
                     type="text"
                     value={newTitle}
                     onChange={(e) => setNewTitle(e.target.value)}
                   />
-                  <button className='btn-config' onClick={() => finishEditingTask(task.id)}>💾</button>
+                  <button onClick={() => finishEditingTask(task.id)}>Guardar</button>
                 </div>
               )}
             </div>
           )}
         />
       </div>
-    </main>
-
-  );
-};
+    );
+  };
+  
