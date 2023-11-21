@@ -1,10 +1,11 @@
-
 import { TaskListView } from './components/TaskListView/TaskListView'
 
 function App() {
   return (
     <>
-      <TaskListView/>
+
+      <TaskListView />
+
     </>
   )
 }
