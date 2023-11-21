@@ -41,7 +41,7 @@ const TaskForm = ({onSubmitted = (form) =>{}}) => {
         type="text" 
         placeholder="Escribe una tarea..." 
         />
-        <button type="submit">Agregar Tarea</button>
+        <button className='btn' type="submit">Agregar Tarea</button>
     </form>
 </section>
   )

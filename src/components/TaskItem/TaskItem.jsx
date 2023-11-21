@@ -11,25 +11,24 @@ const TaskItem = ({id,title, completed, onComplete=()=>{}, onDelete=()=>{}, onEd
     }
     const handleEdit = (id, updatedTitle) => {
         onEdit(id, updatedTitle);
-        // Puedes realizar otras acciones después de editar la tarea, si es necesario
       };
 
     return (
-        <div>
+        <div className='container-TaskItem'>
             <p style={{ textDecoration: completed ? 'line-through' : 'none' }}>
                 <span>{title} </span>
-                {/* <span>{completed ?
-                    "Completada" :
-                    "Pendiente"}</span> */}
             </p>
 
             <button
+                className='btn-config'
                 onClick={handleCompleted}
             >✅</button>
             <button
+                className='btn-config'
                 onClick={handleDelete}
             >❌</button>
             <button
+                className='btn-config'
                 onClick={handleEdit}
             >✏️</button>
 

@@ -26,6 +26,7 @@ body {
 #root {
     flex: 1;
     background-color: #708090;
+    font-size: 1.2em;
 }
 
 footer {
