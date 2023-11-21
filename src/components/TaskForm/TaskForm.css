@@ -2,29 +2,7 @@ form {
     display: flex;
     gap: 4em;
     margin-bottom: 4em;
-}
-
-form input {
-    border: none;
-    font-family: 'Montserrat', sans-serif;
-    border-bottom: 1px solid #111111;
-    background-color: #708090;
-    width: 30em;
-    font-size: 1.1em;
-    color: white;
-}
-
-input::placeholder {
-    color: #fff;
-    font-size: 18px;
-    font-family: 'Montserrat', sans-serif;
-    font-style: italic;
-}
-
-input:focus {
-    outline: none;
-    border-bottom: 2px solid #ffc506;
-    transform: scale(1.05);
+    margin-top: 5em;
 }
 
 /*Configuración del button*/
@@ -47,7 +25,7 @@ input:focus {
     height: 2px;
     width: 0;
     background-color: #ffc506;
-    transition: .1s ease;
+    transition: .05s ease;
 }
 
 .btn:hover {
@@ -67,7 +45,7 @@ input:focus {
     height: 0;
     width: 100%;
     background-color: #ffc506;
-    transition: .4s ease;
+    transition: .1s ease;
     z-index: -1;
 }
 

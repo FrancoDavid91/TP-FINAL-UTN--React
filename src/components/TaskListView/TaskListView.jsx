@@ -65,13 +65,14 @@ export const TaskListView = () => {
                 onEdit={() => startEditingTask(task.id, task.title)}
               />
               {editingTaskId === task.id && (
-                <div>
+                <div className='container-edit'>
                   <input
+                    className='inputForm inputSave'
                     type="text"
                     value={newTitle}
                     onChange={(e) => setNewTitle(e.target.value)}
                   />
-                  <button onClick={() => finishEditingTask(task.id)}>Guardar</button>
+                  <button className='btn-config' onClick={() => finishEditingTask(task.id)}>💾</button>
                 </div>
               )}
             </div>

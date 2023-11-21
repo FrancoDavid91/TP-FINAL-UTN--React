@@ -35,6 +35,7 @@ const TaskForm = ({onSubmitted = (form) =>{}}) => {
         onSubmit={handleSubmit}
     >
         <input 
+        className='inputForm'
         name = "title"
         value={form.title}
         onChange={handleChange}

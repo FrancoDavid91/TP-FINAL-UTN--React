@@ -1,7 +1,7 @@
 import React from 'react'
 import './TaskItem.css'
 
-const TaskItem = ({id,title, completed, onComplete=()=>{}, onDelete=()=>{}, onEdit=()=>{}}) => {
+const TaskItem = ({ id, title, completed, onComplete = () => { }, onDelete = () => { }, onEdit = () => { } }) => {
 
     const handleDelete = () => {
         onDelete(id)
@@ -11,7 +11,7 @@ const TaskItem = ({id,title, completed, onComplete=()=>{}, onDelete=()=>{}, onEd
     }
     const handleEdit = (id, updatedTitle) => {
         onEdit(id, updatedTitle);
-      };
+    };
 
     return (
         <div className='container-TaskItem'>
