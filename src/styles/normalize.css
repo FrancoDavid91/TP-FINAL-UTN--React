@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz@6..12&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@1,6..12,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Montserrat:wght@300&family=Nunito+Sans:opsz@6..12&display=swap');
+
+*,
+*::before
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+html{
+    font-size: 62.5%; /*Establishing 10px for browser-font by default*/
+    color: #111111;
+    font-family: 'Nunito Sans', sans-serif;
+} 

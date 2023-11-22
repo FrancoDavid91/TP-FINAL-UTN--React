@@ -1,5 +1,5 @@
 import { useState }  from 'react'
-import './TaskForm.css'
+import '../../styles/TaskForm.css'
 
 const TaskForm = ({onSubmitted = (form) =>{}}) => {
   

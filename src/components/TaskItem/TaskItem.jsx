@@ -1,5 +1,5 @@
 import React from 'react'
-import './TaskItem.css'
+import '../../styles/TaskItem.css'
 
 const TaskItem = ({ id, title, completed, onComplete = () => { }, onDelete = () => { }, onEdit = () => { } }) => {
 

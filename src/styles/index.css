@@ -1,0 +1,132 @@
+/*---------------------------------------------*/
+/*Header*/
+.container-header {
+    display: flex;
+    align-items: center;
+    margin: 1em;
+    background-color: #2f4f4f;
+    color: white;
+    margin: 0;
+}
+
+.container-header img {
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 1em;
+}
+
+.container-header h1 {
+    font-size: 3.5em;
+}
+/*---------------------------------------------*/
+
+/*---------------------------------------------*/
+/*Body*/
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+#root {
+    flex: 1;
+    background-color: #708090;
+    font-size: 1.2em;
+    flex: 1;
+    overflow-y: auto;
+}
+/*---------------------------------------------*/
+
+/*---------------------------------------------*/
+/*Inputs*/
+.inputForm {
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    border-bottom: 1px solid #111111;
+    background-color: #708090;
+    width: 30em;
+    margin-left: 10px;
+    font-size: 1.1em;
+    color: white;
+}
+
+.inputForm::placeholder {
+    color: #fff;
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+}
+
+.inputForm:focus {
+    outline: none;
+    border-bottom: 2px solid #ffc506;
+    transform: scale(1.05);
+}
+/*---------------------------------------------*/
+
+/*---------------------------------------------*/
+/*Style for buttons btn-config*/
+.btn-config {
+    background: rgb(107, 105, 105);
+    border: none;
+    border-radius: 0.625em;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.btn-config:hover {
+    color: black;
+}
+
+.btn-config:after {
+    content: "";
+    background: #ffc506;
+    position: absolute;
+    z-index: -1;
+    left: -20%;
+    right: -20%;
+    top: 0;
+    bottom: 0;
+    transform: skewX(-45deg) scale(0, 1);
+    transition: all 0.5s;
+}
+
+button:hover:after {
+    transform: skewX(-45deg) scale(1, 1);
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+}
+/*---------------------------------------------*/
+
+/*---------------------------------------------*/
+/*Footer*/
+footer {
+    background-color: #2f4f4f;
+    color: white;
+}
+
+footer p {
+    margin: 0;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+footer h4 {
+    margin-bottom: 5px;
+}
+
+.container-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container-footer ul {
+    list-style: none;
+    text-align: center;
+    padding-left: 0;
+    font-size: 1.1em;
+}
+/*---------------------------------------------*/
