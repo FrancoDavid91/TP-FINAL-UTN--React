@@ -1,14 +1,14 @@
-import React from 'react'
+import React from "react";
 
-const TaskList = ({task, renderTask}) => {
+//Here we render the list of tasks
+const TaskList = ({ task, renderTask }) => {
   return (
     <section>
-            {task.map((task) => {
-                return renderTask(task)
-            })}
+      {task.map((task) => {
+        return renderTask(task);
+      })}
     </section>
-  )
-}
+  );
+};
 
-export default TaskList
-
+export default TaskList;

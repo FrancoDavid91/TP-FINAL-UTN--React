@@ -1,37 +1,40 @@
-import { useState, useEffect } from 'react';
-import TaskForm from '../TaskForm/TaskForm';
-import TaskList from '../TaskList/TaskList';
-import TaskItem from '../TaskItem/TaskItem';
-import '../../styles/TaskListView.css'
+import { useState, useEffect } from "react";
+import TaskForm from "../TaskForm/TaskForm";
+import TaskList from "../TaskList/TaskList";
+import TaskItem from "../TaskItem/TaskItem";
+import "../../styles/TaskListView.css";
 
 export const TaskListView = () => {
-  const [task, setTask] = useState([]); //useState for actual tasks
-  const [editingTaskId, setEditingTaskId] = useState(null); //useState for edit task
-  const [newTitle, setNewTitle] = useState('');
-  
-  const generateUniqueID = () => {//generates an unique ID for every task
-    return '_' + Math.random().toString(36);
+  const [task, setTask] = useState([]); //UseState for actual tasks
+  const [editingTaskId, setEditingTaskId] = useState(null); //UseState for edit task
+  const [newTitle, setNewTitle] = useState(""); //UseState for setting new task
+
+  const generateUniqueID = () => {
+    //Generates an unique ID for every task
+    return "_" + Math.random().toString(36);
   };
-  
-  useEffect(() => {//Here we interact to find if data persists within localStorage 
+
+  useEffect(() => {
+    //Here we interact to find if data persists within localStorage
     try {
-      const storedTasks = localStorage.getItem('tasks');
+      const storedTasks = localStorage.getItem("tasks");
       if (storedTasks) {
         setTask(JSON.parse(storedTasks));
       }
     } catch (error) {
-      
-      console.error('Error accessing local storage:', error);
+      console.error("Error accessing local storage:", error);
     }
   }, []);
 
-
-  useEffect(() => {//With this hook we save data in localStorage
-    if(task.length > 0) {localStorage.setItem('tasks', JSON.stringify(task))}
+  useEffect(() => {
+    //With this hook we save data in localStorage
+    if (task.length > 0) {
+      localStorage.setItem("tasks", JSON.stringify(task));
+    }
   }, [task]);
 
-//-----------------------------------------------------------------------
-//Set of functions for create, modify,check and delete.
+  //-----------------------------------------------------------------------
+  //Set of functions for create, modify,check and delete.
   const createTask = (title) => ({
     id: generateUniqueID(),
     title: title,
@@ -45,7 +48,9 @@ export const TaskListView = () => {
 
   const completeTask = (id) => {
     const newTaskList = task.map((taskNew) =>
-      taskNew.id === id ? { ...taskNew, completed: !taskNew.completed } : taskNew
+      taskNew.id === id
+        ? { ...taskNew, completed: !taskNew.completed }
+        : taskNew
     );
     setTask(newTaskList);
   };
@@ -67,11 +72,11 @@ export const TaskListView = () => {
     setTask(updatedTaskList);
     setEditingTaskId(null);
   };
-//-----------------------------------------------------------------------
-//Definition of View Component 
+  //-----------------------------------------------------------------------
+  //Definition of View Component
   return (
     <main>
-      <div className='container-view'>
+      <div className="container-view">
         <TaskForm
           onSubmitted={(form) => {
             addTask(form);
@@ -89,14 +94,19 @@ export const TaskListView = () => {
                 onEdit={() => startEditingTask(task.id, task.title)}
               />
               {editingTaskId === task.id && (
-                <div className='container-edit'>
+                <div className="container-edit">
                   <input
-                    className='inputForm inputSave'
+                    className="inputForm inputSave"
                     type="text"
                     value={newTitle}
                     onChange={(e) => setNewTitle(e.target.value)}
                   />
-                  <button className='btn-config' onClick={() => finishEditingTask(task.id)}>💾</button>
+                  <button
+                    className="btn-config"
+                    onClick={() => finishEditingTask(task.id)}
+                  >
+                    💾
+                  </button>
                 </div>
               )}
             </div>
@@ -104,6 +114,5 @@ export const TaskListView = () => {
         />
       </div>
     </main>
-
   );
 };

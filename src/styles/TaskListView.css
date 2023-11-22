@@ -1,38 +1,44 @@
-main{
+main {
   margin-bottom: 2em;
 }
 /*----------------------*/
 /*Container*/
 .container-view {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    max-width: 80%;
-    margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 80%;
+  margin: auto;
 }
-.container-edit{
-    margin: 0.3em 0.6em;
+.container-edit {
+  margin: 0.3em 0.6em;
 }
-.container-edit .btn-config{
-    margin-left: 1.2em;
+.container-edit .btn-config {
+  margin-left: 1.2em;
 }
-.inputSave{
-    width: 20em;
-    margin: 0 0.4em;
-    
-    animation: palpitar 2s ease infinite;
+.inputSave {
+  width: 20em;
+  margin: 0 0.4em;
+
+  animation: palpitar 2s ease infinite;
 }
 
-  @keyframes palpitar {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
+@keyframes palpitar {
+  0% {
+    transform: scale(1);
   }
-  
-  .inputSave::placeholder {
-    color: #999;
-    opacity: 0.5;
+  50% {
+    transform: scale(1.05);
   }
+  100% {
+    transform: scale(1);
+  }
+}
 
-  /*----------------------*/
+.inputSave::placeholder {
+  color: #999;
+  opacity: 0.5;
+}
+
+/*----------------------*/
